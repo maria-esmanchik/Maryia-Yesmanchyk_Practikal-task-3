@@ -72,7 +72,7 @@ public class Main {
             queue.remove();
             if(queue.peek() == null) {
                 System.out.println("It's cancel the line");
-                System.out.println("###################################################");
+                System.out.println("\n###################################################\n");
                 break;
             }
             if(i == 2) {
@@ -110,30 +110,41 @@ public class Main {
         while (!( races).isEmpty()) {
         System.out.println("The last element is removed: " + ((LinkedList<Integer>) races).removeLast());
         }
+        System.out.println("\n###################################################\n");
 
 
         //***************** Task #2 *************************
 
 
-//        List<Integer>list = new LinkedList<>();
-//        int y = 0;
-//        int x = 10;
-//        while (list.size()< x) {
-//            if(y % 2 == 0) {
-//                list.add(y);
-//                System.out.println("num " + y);
-//            //    System.out.println(list);
-//            }else if (y % 2 != 0 && y < 10){
-//                x--;
-//            System.out.println("index " + x);
-//            System.out.println("num " + y);
-////              list.add(x, y);
-////                System.out.println("index " + x);
-//               System.out.println(list);
-//           }
-//            y++;
-//        }
-//        System.out.println(list);
+        List<Integer>list = new LinkedList<>();
+        int y = 0;
+        int x = 10;
+        System.out.println("Create");
+        while (list.size()<= x) {
+            if(y % 2 == 0) {
+                ((LinkedList<Integer>) list).addFirst(y);
+                System.out.println(list);
+            }else {
+            ((LinkedList<Integer>) list).addLast(y);
+                System.out.println(list);
+           }
+            y++;
+        }
+        System.out.println(list);
+
+        System.out.println("Delete");
+        while (!(list.size() == 0)) {
+            if(y % 2 == 0) {
+                ((LinkedList<Integer>) list).removeFirst();
+                System.out.println(list);
+            }else {
+                ((LinkedList<Integer>) list).removeLast();
+                System.out.println(list);
+            }
+        }
+        //System.out.println(list);
+
+        System.out.println("\n###################################################\n");
 
 
         // Jenga
@@ -152,6 +163,8 @@ public class Main {
             System.out.println(integerList);
         }
 
+        System.out.println("\n###################################################\n");
+
         //***************** Task #3 *************************
 
 
@@ -161,5 +174,35 @@ public class Main {
             creditCards.add(new CreditCard(new Random().nextInt(1000000000)));
         }
         System.out.println(creditCards.toString());
+
+        System.out.println("\n###################################################\n");
+
+
+        //***************** Task #4 *************************
+
+
+        Map<String, String> stringMap = new HashMap<>();
+        stringMap.put("Alligator", "Alex Smith");
+        stringMap.put("Berry", "Liz Cope");
+        stringMap.put("Berry89", "Kate Hudson");
+
+        SocialMedia socialMedia = new SocialMedia(stringMap);
+        System.out.println(socialMedia.toString());
+
+        System.out.println("REGISTREAT");
+        System.out.println("Please enter nickname: ");
+
+        socialMedia.registratorNewUser("Berry", "Lia Lun");
+        System.out.println("\n" + socialMedia.toString());
+
+        socialMedia.registratorNewUser("Sunrise", "Lia Lun");
+        System.out.println("\n" + socialMedia.toString());
+
+        System.out.println("DELETE ACCOUNT");
+        System.out.println("Please enter nickname: ");
+        socialMedia.removeUser("Bery");
+        System.out.println("\n" + socialMedia.toString());
+        socialMedia.removeUser("Berry");
+        System.out.println("\n" + socialMedia.toString());
      }
 }
